@@ -1,0 +1,17 @@
+{
+  "intro_text": {
+    "text": "In the year 2157...",
+    "color": "#FF6347",
+    "font_size": 25
+  },
+  "title": {
+    "text": "MARS\nCOLONY",
+    "color": "#FF4500",
+    "font_size": 50
+  },
+  "main_text": {
+    "text": "The first human settlement\non Mars faces extinction.\n\nA massive dust storm\nthreatens to destroy\neverything they built.",
+    "color": "#FF6347",
+    "font_size": 33
+  }
+}

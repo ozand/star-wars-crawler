@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "name": "green_theme_large",
+    "description": "Green matrix style - Large fonts",
+    "template": "green_theme",
+    "size_variant": "_large",
+    "created": "2025-07-03 01:28:22"
+  },
+  "intro_text": {
+    "text": "Reality is an illusion...",
+    "color": "#32CD32",
+    "font_size": 46
+  },
+  "title": {
+    "text": "THE\nMATRIX",
+    "color": "#00FF00",
+    "font_size": 93
+  },
+  "main_text": {
+    "text": "Neo discovers the truth\nabout his reality.\n\nThe world he knows\nis a computer simulation\ncontrolled by machines.",
+    "color": "#32CD32",
+    "font_size": 62
+  }
+}

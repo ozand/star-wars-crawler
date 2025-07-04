@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "name": "purple_theme_large",
+    "description": "Purple mystical theme - Large fonts",
+    "template": "purple_theme",
+    "size_variant": "_large",
+    "created": "2025-07-03 01:28:22"
+  },
+  "intro_text": {
+    "text": "In the realm of magic...",
+    "color": "#9370DB",
+    "font_size": 46
+  },
+  "title": {
+    "text": "WIZARDS\nREVOLT",
+    "color": "#8A2BE2",
+    "font_size": 93
+  },
+  "main_text": {
+    "text": "The ancient council\nof wizards has fallen.\n\nYoung sorcerers rise\nto challenge the old order\nand restore balance.",
+    "color": "#9370DB",
+    "font_size": 62
+  }
+}

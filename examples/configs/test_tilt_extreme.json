@@ -1,0 +1,20 @@
+{
+    "title": {
+        "text": "TILT TEST\nEXTREME ANGLE",
+        "color": "#FFE81F",
+        "font_size": 72
+    },
+    "main_text": {
+        "text": "This is a test with EXTREME TILT ANGLE.\n\nThe text should have very strong\nperspective effect.\n\nThis creates maximum depth\nfor special dramatic scenes.\n\nExtreme angle = 35 degrees",
+        "color": "#FFE81F",
+        "font_size": 48
+    },
+    "animation": {
+        "duration": 15
+    },
+    "perspective": {
+        "tilt_angle": 35.0,
+        "base_perspective": 0.6,
+        "max_perspective": 0.9
+    }
+}

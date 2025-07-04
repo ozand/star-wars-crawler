@@ -1,0 +1,20 @@
+{
+    "title": {
+        "text": "TILT TEST\nOPTIMAL ANGLE",
+        "color": "#FFE81F",
+        "font_size": 72
+    },
+    "main_text": {
+        "text": "This is the OPTIMAL TILT ANGLE\nfor perfect Star Wars effect.\n\nBased on analysis of original films,\nthis setting provides the best\nbalance between perspective\nand text readability.\n\nOptimal angle = 22 degrees\nwith balanced perspective settings.",
+        "color": "#FFE81F",
+        "font_size": 48
+    },
+    "animation": {
+        "duration": 18
+    },
+    "perspective": {
+        "tilt_angle": 22.0,
+        "base_perspective": 0.45,
+        "max_perspective": 0.72
+    }
+}

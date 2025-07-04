@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "name": "classic_yellow_large",
+    "description": "Classic Star Wars yellow theme - Large fonts",
+    "template": "classic_yellow",
+    "size_variant": "_large",
+    "created": "2025-07-03 01:28:22"
+  },
+  "intro_text": {
+    "text": "A long time ago in a galaxy far, far away....",
+    "color": "#4A90E2",
+    "font_size": 46
+  },
+  "title": {
+    "text": "Episode IV\nA NEW HOPE",
+    "color": "#FFE81F",
+    "font_size": 93
+  },
+  "main_text": {
+    "text": "It is a period of civil war.\n\nRebel spaceships, striking from\na hidden base, have won their\nfirst victory against the evil\nGalactic Empire.",
+    "color": "#FFE81F",
+    "font_size": 62
+  }
+}

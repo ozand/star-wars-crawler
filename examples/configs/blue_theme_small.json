@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "name": "blue_theme_small",
+    "description": "Blue themed version - Small fonts",
+    "template": "blue_theme",
+    "size_variant": "_small",
+    "created": "2025-07-03 01:28:22"
+  },
+  "intro_text": {
+    "text": "In a distant future...",
+    "color": "#00BFFF",
+    "font_size": 25
+  },
+  "title": {
+    "text": "CYBER\nWARS",
+    "color": "#00FFFF",
+    "font_size": 50
+  },
+  "main_text": {
+    "text": "The digital realm faces\na new threat.\n\nHackers from the dark web\nhave infiltrated the\nmainframe systems.",
+    "color": "#87CEEB",
+    "font_size": 33
+  }
+}

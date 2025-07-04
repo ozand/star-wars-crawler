@@ -1,0 +1,35 @@
+{
+  "title": {
+    "text": "Episode VII\nTHE FORCE AWAKENS",
+    "color": "#FFE81F",
+    "font_size": 80
+  },
+  "main_text": {
+    "text": "Luke Skywalker has vanished.\nIn his absence, the sinister\nFIRST ORDER has risen from\nthe ashes of the Empire\nand will not rest until\nSkywalker, the last Jedi,\nhas been destroyed.\n\nWith the support of the\nREPUBLIC, General Leia Organa\nleads a brave RESISTANCE.\nShe is desperate to find her\nbrother Luke and gain his\nhelp in restoring peace and\njustice to the galaxy.\n\nLeia has sent her most daring\npilot on a secret mission\nto Jakku, where an old ally\nhas discovered a clue to\nLuke's whereabouts....",
+    "color": "#FFE81F",
+    "font_size": 52
+  },
+  "intro_text": {
+    "text": "A long time ago in a galaxy far, far away....",
+    "color": "#4A90E2",
+    "font_size": 40
+  },
+  "background": {
+    "type": "color",
+    "source": "",
+    "fallback_image": "",
+    "color": "#000000"
+  },
+  "animation": {
+    "duration": 50,
+    "perspective_angle": 30,
+    "title_pause": 4,
+    "fade_in_duration": 2
+  },
+  "video_settings": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "output_filename": "starwars_force_awakens.mp4"
+  }
+}

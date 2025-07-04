@@ -1,0 +1,29 @@
+{
+  "intro_text": {
+    "text": "A long time ago in a galaxy far, far away....",
+    "color": "#4A90E2",
+    "font_size": 36
+  },
+  "title": {
+    "text": "Episode IV\\nA NEW HOPE",
+    "color": "#FFE81F",
+    "font_size": 72
+  },
+  "main_text": {
+    "text": "It is a period of civil war.\\nRebel spaceships, striking\\nfrom a hidden base, have won\\ntheir first victory against\\nthe evil Galactic Empire.",
+    "color": "#FFE81F",
+    "font_size": 48
+  },
+  "animation": {
+    "duration": 45
+  },
+  "video_settings": {
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "output_filename": "starwars_crawl.mp4"
+  },
+  "background": {
+    "color": "#000000"
+  }
+}

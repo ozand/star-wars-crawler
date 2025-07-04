@@ -1,0 +1,115 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+
+# Временные и экспериментальные файлы (как в гайдлайне)
+*.tmp
+*.bak
+_experimental_*
+*.debug
+.cache/
+temp_*
+*_temp_*
+*_test_*
+*_backup_*
+scratch_*
+draft_*
+*.draft
+*.scratch
+old_*
+*_old_*
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Проектные временные файлы
+debug_*.png
+debug_*.txt
+*_backup_*
+temp_*
+profile_*
+benchmark_*
+*.profile
+*.benchmark
+
+# Эксперименты и черновики
+experiments/temp_*
+experiments/draft_*
+experiments/old_*
+experiments/*.ignore
+
+# Временные файлы в корне (нарушают чистоту)
+/*.tmp
+/*.bak
+/temp_*
+/draft_*
+/test_*
+/debug_*
+/my_*
+/demo_*
+/*.temp
+/*.debug
+
+# Логи и отчеты
+*.log
+*.report
+logs/
+
+# Медиа файлы (кроме примеров)
+*.mp4
+*.avi
+*.mov
+!examples/**/*.mp4
+!examples/**/*.png
+
+# Выходные файлы
+output/
+*.mp4
+*.avi
+*.mov
+
+# Ruff кэш
+.ruff_cache/
+
+# Batch processing outputs (перемещены в examples/)
+batch_output/
+batch_configs/
+
+# Временные файлы конфигурации
+*.json.bak
+*.txt.bak
+
+# UV и другие пакетные менеджеры
+.uv/
+
+# Pytest cache
+.pytest_cache/
+
+# Benchmarks
+.benchmarks/

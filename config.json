@@ -1,0 +1,29 @@
+{
+  "intro_text": {
+    "text": "A long time ago in a galaxy far, far away....",
+    "color": "#4A90E2",
+    "font_size": 36
+  },
+  "title": {
+    "text": "STAR WARS\\nCRAWLER",
+    "color": "#FFE81F",
+    "font_size": 72
+  },
+  "main_text": {
+    "text": "Welcome to the Star Wars\\nText Crawler Generator.\\n\\nThis tool creates\\namazing scrolling text videos\\nin the classic Star Wars style.\\n\\nCustomize your own\\nepic opening crawl!",
+    "color": "#FFE81F",
+    "font_size": 48
+  },
+  "animation": {
+    "duration": 30
+  },
+  "video_settings": {
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "output_filename": "starwars_crawl.mp4"
+  },
+  "background": {
+    "color": "#000000"
+  }
+}

@@ -1,0 +1,62 @@
+# Pre-commit hooks для автоматических проверок качества кода
+# В соответствии с гайдлайном Python разработчиков
+
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.1
+    hooks:
+      # Линтер - проверка стиля и ошибок
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+        name: Ruff Linter
+      # Форматтер - автоформатирование кода
+      - id: ruff-format
+        name: Ruff Formatter
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      # Базовые проверки файлов
+      - id: trailing-whitespace
+        name: Remove trailing whitespace
+      - id: end-of-file-fixer
+        name: Fix end of files
+      - id: check-yaml
+        name: Check YAML syntax
+      - id: check-json
+        name: Check JSON syntax
+      - id: check-toml
+        name: Check TOML syntax
+      - id: check-merge-conflict
+        name: Check for merge conflicts
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+        name: Check for large files
+      - id: check-case-conflict
+        name: Check for case conflicts
+      - id: mixed-line-ending
+        name: Check line endings
+
+  # Проверка безопасности
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.8
+    hooks:
+      - id: bandit
+        args: ['-r', 'src/', '-f', 'json']
+        name: Security check with Bandit
+
+  - repo: local
+    hooks:
+      # Кастомная проверка на мертвый код (в соответствии с гайдлайном)
+      - id: dead-code-check
+        name: Dead Code Check (unused imports and variables)
+        entry: ruff check --select F401,F841
+        language: system
+        files: ^src/
+        pass_filenames: false
+
+# Конфигурация pre-commit
+ci:
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false

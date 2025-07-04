@@ -1,0 +1,35 @@
+{
+  "title": {
+    "text": "Episode VIII\nTHE LAST JEDI",
+    "color": "#FF4444",
+    "font_size": 75
+  },
+  "main_text": {
+    "text": "The FIRST ORDER reigns.\nHaving decimated the peaceful\nRepublic, Supreme Leader Snoke\nnow deploys the merciless\nlegisons to seize military\ncontrol of the galaxy.\n\nOnly General Leia Organa's\nband of RESISTANCE fighters\nstand against the rising\ntyranny, certain that Jedi\nMaster Luke Skywalker will\nreturn and restore a spark of\nhope to the fight.\n\nBut the Resistance has been\nexposed. As the First Order\nspeeds toward the rebel base,\nthe brave heroes mount a\ndesperate escape....",
+    "color": "#FFE81F",
+    "font_size": 48
+  },
+  "intro_text": {
+    "text": "A long time ago in a galaxy far, far away....",
+    "color": "#8A2BE2",
+    "font_size": 36
+  },
+  "background": {
+    "type": "video",
+    "source": "space_background.mp4",
+    "fallback_image": "stars.jpg",
+    "color": "#1a1a2e"
+  },
+  "animation": {
+    "duration": 42,
+    "perspective_angle": 28,
+    "title_pause": 3.5,
+    "fade_in_duration": 1.5
+  },
+  "video_settings": {
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "output_filename": "starwars_last_jedi.mp4"
+  }
+}

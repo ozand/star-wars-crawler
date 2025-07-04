@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "name": "red_theme_large",
+    "description": "Red/orange themed version - Large fonts",
+    "template": "red_theme",
+    "size_variant": "_large",
+    "created": "2025-07-03 01:28:22"
+  },
+  "intro_text": {
+    "text": "In the year 2157...",
+    "color": "#FF6347",
+    "font_size": 46
+  },
+  "title": {
+    "text": "MARS\nCOLONY",
+    "color": "#FF4500",
+    "font_size": 93
+  },
+  "main_text": {
+    "text": "The first human settlement\non Mars faces extinction.\n\nA massive dust storm\nthreatens to destroy\neverything they built.",
+    "color": "#FF6347",
+    "font_size": 62
+  }
+}

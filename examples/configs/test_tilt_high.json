@@ -1,0 +1,20 @@
+{
+    "title": {
+        "text": "TILT TEST\nHIGH ANGLE",
+        "color": "#FFE81F",
+        "font_size": 72
+    },
+    "main_text": {
+        "text": "This is a test with HIGH TILT ANGLE.\n\nThe text should have strong\nperspective effect.\n\nThis creates dramatic depth\nfor cinematic effect.\n\nHigh angle = 25 degrees",
+        "color": "#FFE81F",
+        "font_size": 48
+    },
+    "animation": {
+        "duration": 15
+    },
+    "perspective": {
+        "tilt_angle": 25.0,
+        "base_perspective": 0.5,
+        "max_perspective": 0.8
+    }
+}

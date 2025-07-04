@@ -1,0 +1,93 @@
+[project]
+name = "star-war-crawler"
+version = "1.0.0"
+description = "Star Wars style text crawler with 3D perspective effects"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "moviepy>=1.0.3",
+    "pillow>=10.0.0",
+    "numpy>=1.24.0",
+    "opencv-python>=4.8.0",
+]
+
+[project.scripts]
+starwars-cli = "star_wars_generator.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.4.7",
+    "pytest>=7.0.0",
+    "pre-commit>=3.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["ALL"]  # Включить все правила согласно гайдлайну
+ignore = [
+    "E501",   # line too long (handled by formatter)
+    "F403",   # star imports (legacy code)
+    "F405",   # may be undefined from star imports
+    "T201",   # print statements (debug code)
+    "E722",   # bare except (will fix gradually)
+    "D100",   # missing docstring in public module
+    "D101",   # missing docstring in public class
+    "D102",   # missing docstring in public method
+    "D103",   # missing docstring in public function
+    "D104",   # missing docstring in public package
+    "D105",   # missing docstring in magic method
+    "S101",   # use of assert (pytest usage)
+    "PLR0913", # too many arguments to function call
+    "PLR0912", # too many branches
+    "C901",   # function is too complex
+    "COM812", # trailing comma missing (handled by formatter)
+    "ISC001", # implicitly concatenated string literals (handled by formatter)
+    "FIX002", # TODO comments (temporary)
+    "TD002",  # TODO comments without author (temporary)
+    "TD003",  # TODO comments without issue link (temporary)
+]
+unfixable = ["F841"]  # Не автофиксить неиспользуемые переменные
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*" = ["S101"]  # Разрешить assert в тестах
+"experiments/**/*" = ["ALL"]  # Игнорировать все правила в экспериментах
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.ruff.lint.isort]
+known-first-party = ["star_wars_generator", "utils"]
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+# Кастомные команды для аудита
+[tool.rye.scripts]
+ruff-format = "ruff format ."
+lint = "ruff check ."
+lint-fix = "ruff check . --fix"
+dead-code-audit = { chain = [
+    "ruff check --select F401,F841 src/",
+    "uv pip list --outdated",
+]}
+test = "pytest tests/"
+clean = { chain = [
+    "ruff format .",
+    "ruff check . --fix",
+]}
