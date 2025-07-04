@@ -61,15 +61,15 @@ class MyEffect(Effect):
 # ✅ НАШЕ РЕШЕНИЕ - полный обход композиции
 def make_frame(t):
     """Создает каждый кадр с нуля - НЕТ композиции!"""
-    
+
     # Прямое создание RGB массива
     frame = np.zeros((height, width, 3), dtype=np.uint8)
-    
+
     # PIL для идеального рендеринга
     img = Image.new('RGB', (width, height), bg_color)
     draw = ImageDraw.Draw(img)
     draw.text((x, y), text, font=font, fill=color)
-    
+
     return np.array(img)  # Гарантированный RGB формат
 
 # Один VideoClip на все - БЕЗ композиции
@@ -86,14 +86,14 @@ text_clip = TextClip("Hello", fontsize=50, color='white')
 def create_text_frame(text, fontsize, color):
     img = Image.new('RGB', (width, height), bg_color)
     draw = ImageDraw.Draw(img)
-    
+
     # Точный контроль шрифтов
     font = ImageFont.truetype("arial.ttf", fontsize)
-    
+
     # Прямой RGB без альфа-канала
     rgb_color = hex_to_rgb(color)
     draw.text((x, y), text, font=font, fill=rgb_color)
-    
+
     return np.array(img)  # Всегда правильный формат
 ```
 
@@ -112,7 +112,7 @@ def create_text_frame(text, fontsize, color):
 ```python
 # ❌ Стандартный подход:
 # 1. Создание background ColorClip
-# 2. Создание text TextClip  
+# 2. Создание text TextClip
 # 3. Композиция CompositeVideoClip (тяжелая операция)
 # 4. Рендеринг с ошибками
 
@@ -153,9 +153,9 @@ def create_text_frame(text, fontsize, color):
 ```python
 def diagnose_broadcast_error():
     """Диагностика причин broadcast error"""
-    
+
     print("Проверка форматов:")
-    
+
     # ❌ Проблемный код:
     try:
         bg = ColorClip(size=(1280, 720), color=(0,0,0))
@@ -165,12 +165,12 @@ def diagnose_broadcast_error():
         print(f"Text shape: {text.get_frame(0).shape}")
     except ValueError as e:
         print(f"❌ Broadcast error: {e}")
-    
+
     # ✅ Наше решение:
     def safe_frame(t):
         frame = np.zeros((720, 1280, 3), dtype=np.uint8)
         return frame
-    
+
     safe_clip = VideoClip(safe_frame, duration=1)
     print(f"✅ Safe frame shape: {safe_clip.get_frame(0).shape}")
 ```

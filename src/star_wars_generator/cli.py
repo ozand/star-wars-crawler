@@ -45,7 +45,9 @@ class StarWarsCLI:
         output_path = Path(output)
 
         # Если указана только папка (заканчивается на /)
-        if output.endswith(("/", "\\")) or (output_path.exists() and output_path.is_dir()):
+        if output.endswith(("/", "\\")) or (
+            output_path.exists() and output_path.is_dir()
+        ):
             output_path = output_path / default_filename
 
         # Если путь не имеет расширения, считаем его папкой
@@ -84,10 +86,14 @@ class StarWarsCLI:
 
         print(f"\n💡 Всего конфигураций: {len(list(self.configs_dir.glob('*.json')))}")
 
-    def create_video_from_config(self, config_path: str, output: str | None = None,
-                               tilt_angle: float | None = None,
-                               perspective_min: float | None = None,
-                               perspective_max: float | None = None) -> bool:
+    def create_video_from_config(
+        self,
+        config_path: str,
+        output: str | None = None,
+        tilt_angle: float | None = None,
+        perspective_min: float | None = None,
+        perspective_max: float | None = None,
+    ) -> bool:
         """Создать видео из конфигурации."""
         config_file = Path(config_path)
 
@@ -107,7 +113,11 @@ class StarWarsCLI:
             self.generator.load_config_file(str(config_file))
 
             # Применяем дополнительные параметры перспективы если они заданы
-            if tilt_angle is not None or perspective_min is not None or perspective_max is not None:
+            if (
+                tilt_angle is not None
+                or perspective_min is not None
+                or perspective_max is not None
+            ):
                 print("🎯 Применяем дополнительные параметры перспективы:")
                 if tilt_angle is not None:
                     self.generator.tilt_angle = tilt_angle
@@ -136,33 +146,32 @@ class StarWarsCLI:
             print(f"❌ Ошибка при создании видео: {e}")
             return False
 
-    def create_video_from_text(self, title: str, text: str, output: str | None = None,
-                             tilt_angle: float | None = None,
-                             perspective_min: float | None = None,
-                             perspective_max: float | None = None) -> bool:
+    def create_video_from_text(
+        self,
+        title: str,
+        text: str,
+        output: str | None = None,
+        tilt_angle: float | None = None,
+        perspective_min: float | None = None,
+        perspective_max: float | None = None,
+    ) -> bool:
         """Создать видео из текста."""
         # Исправляем обработку символов новой строки
         title = title.replace("\\n", "\n")
         text = text.replace("\\n", "\n")
 
         config = {
-            "title": {
-                "text": title,
-                "color": "#FFE81F",
-                "font_size": 72
-            },
-            "main_text": {
-                "text": text,
-                "color": "#FFE81F",
-                "font_size": 48
-            },
-            "animation": {
-                "duration": 30
-            }
+            "title": {"text": title, "color": "#FFE81F", "font_size": 72},
+            "main_text": {"text": text, "color": "#FFE81F", "font_size": 48},
+            "animation": {"duration": 30},
         }
 
         # Добавляем параметры перспективы если они заданы
-        if tilt_angle is not None or perspective_min is not None or perspective_max is not None:
+        if (
+            tilt_angle is not None
+            or perspective_min is not None
+            or perspective_max is not None
+        ):
             config["perspective"] = {}
             if tilt_angle is not None:
                 config["perspective"]["tilt_angle"] = tilt_angle
@@ -198,30 +207,26 @@ class StarWarsCLI:
             "intro_text": {
                 "text": "A long time ago in a galaxy far, far away....",
                 "color": "#4A90E2",
-                "font_size": 36
+                "font_size": 36,
             },
             "title": {
                 "text": "Episode IV\\nA NEW HOPE",
                 "color": "#FFE81F",
-                "font_size": 72
+                "font_size": 72,
             },
             "main_text": {
                 "text": "It is a period of civil war.\\nRebel spaceships, striking\\nfrom a hidden base, have won\\ntheir first victory against\\nthe evil Galactic Empire.",
                 "color": "#FFE81F",
-                "font_size": 48
+                "font_size": 48,
             },
-            "animation": {
-                "duration": 45
-            },
+            "animation": {"duration": 45},
             "video_settings": {
                 "width": 1280,
                 "height": 720,
                 "fps": 24,
-                "output_filename": "starwars_crawl.mp4"
+                "output_filename": "starwars_crawl.mp4",
             },
-            "background": {
-                "color": "#000000"
-            }
+            "background": {"color": "#000000"},
         }
 
         try:
@@ -314,30 +319,27 @@ def main() -> int:
   --tilt 25          # Сильный наклон (драматический эффект)
 
 May the Force be with you! ⚔️✨
-        """
+        """,
     )
 
     # Основные команды
     parser.add_argument(
         "config",
         nargs="?",
-        help="Имя темы или путь к JSON конфигурации (например: classic_yellow_normal, my_config.json)"
+        help="Имя темы или путь к JSON конфигурации (например: classic_yellow_normal, my_config.json)",
     )
 
     parser.add_argument(
-        "-o", "--output",
-        help="Путь к выходному файлу или папке (например: video.mp4, ./videos/, ./my_folder/video.mp4). По умолчанию: output/"
+        "-o",
+        "--output",
+        help="Путь к выходному файлу или папке (например: video.mp4, ./videos/, ./my_folder/video.mp4). По умолчанию: output/",
     )
 
     # Создание из текста
-    parser.add_argument(
-        "--title",
-        help="Заголовок для видео (используется с --text)"
-    )
+    parser.add_argument("--title", help="Заголовок для видео (используется с --text)")
 
     parser.add_argument(
-        "--text",
-        help="Основной текст для видео (используется с --title)"
+        "--text", help="Основной текст для видео (используется с --title)"
     )
 
     # Параметры перспективы
@@ -345,46 +347,44 @@ May the Force be with you! ⚔️✨
         "--tilt",
         type=float,
         metavar="ANGLE",
-        help="Угол наклона текста в градусах (рекомендуется: 10-25). Пример: --tilt 22"
+        help="Угол наклона текста в градусах (рекомендуется: 10-25). Пример: --tilt 22",
     )
 
     parser.add_argument(
         "--perspective-min",
         type=float,
         metavar="VALUE",
-        help="Минимальная интенсивность перспективы (0.0-1.0). Пример: --perspective-min 0.4"
+        help="Минимальная интенсивность перспективы (0.0-1.0). Пример: --perspective-min 0.4",
     )
 
     parser.add_argument(
         "--perspective-max",
         type=float,
         metavar="VALUE",
-        help="Максимальная интенсивность перспективы (0.0-1.0). Пример: --perspective-max 0.7"
+        help="Максимальная интенсивность перспективы (0.0-1.0). Пример: --perspective-max 0.7",
     )
 
     # Утилиты
     parser.add_argument(
-        "--list", "-l",
+        "--list",
+        "-l",
         action="store_true",
-        help="Показать доступные темы и конфигурации"
+        help="Показать доступные темы и конфигурации",
     )
 
     parser.add_argument(
-        "--template", "-t",
-        metavar="FILENAME",
-        help="Создать шаблон JSON конфигурации"
+        "--template", "-t", metavar="FILENAME", help="Создать шаблон JSON конфигурации"
     )
 
     parser.add_argument(
-        "--batch", "-b",
+        "--batch",
+        "-b",
         action="store_true",
-        help="Создать видео для всех готовых конфигураций"
+        help="Создать видео для всех готовых конфигураций",
     )
 
     parser.add_argument(
-        "--version", "-v",
-        action="version",
-        version="Star Wars Crawl Generator 1.0.0"
+        "--version", "-v", action="version", version="Star Wars Crawl Generator 1.0.0"
     )
 
     args = parser.parse_args()
@@ -410,8 +410,12 @@ May the Force be with you! ⚔️✨
 
     if args.title and args.text:
         success = cli.create_video_from_text(
-            args.title, args.text, args.output,
-            args.tilt, args.perspective_min, args.perspective_max
+            args.title,
+            args.text,
+            args.output,
+            args.tilt,
+            args.perspective_min,
+            args.perspective_max,
         )
         return 0 if success else 1
 
@@ -421,8 +425,11 @@ May the Force be with you! ⚔️✨
 
     if args.config:
         success = cli.create_video_from_config(
-            args.config, args.output,
-            args.tilt, args.perspective_min, args.perspective_max
+            args.config,
+            args.output,
+            args.tilt,
+            args.perspective_min,
+            args.perspective_max,
         )
         return 0 if success else 1
 
@@ -441,7 +448,12 @@ May the Force be with you! ⚔️✨
             return 0
         print("❌ Видео не было создано")
         return 1
-    except (FileNotFoundError, json.JSONDecodeError, RuntimeError, KeyboardInterrupt) as e:
+    except (
+        FileNotFoundError,
+        json.JSONDecodeError,
+        RuntimeError,
+        KeyboardInterrupt,
+    ) as e:
         print(f"❌ Ошибка при создании видео: {e}")
         return 1
 

@@ -11,7 +11,7 @@
 # Малый размер
 python src/star_wars_generator/main.py examples/configs/classic_yellow_small.json
 
-# Обычный размер  
+# Обычный размер
 python src/star_wars_generator/main.py examples/configs/classic_yellow_normal.json
 
 # Большой размер
@@ -26,7 +26,7 @@ python src/star_wars_generator/main.py examples/configs/blue_theme_normal.json
 # Красная тема
 python src/star_wars_generator/main.py examples/configs/red_theme_normal.json
 
-# Зеленая тема  
+# Зеленая тема
 python src/star_wars_generator/main.py examples/configs/green_theme_normal.json
 
 # Фиолетовая тема
@@ -148,7 +148,7 @@ episodes = [
         "filename": "episode_1.mp4"
     },
     {
-        "title": "Эпизод II\nАТАКА КЛОНОВ", 
+        "title": "Эпизод II\nАТАКА КЛОНОВ",
         "main_text": "Прошло десять лет...",
         "filename": "episode_2.mp4"
     },
@@ -170,11 +170,11 @@ for episode in episodes:
         },
         "main_text": {
             "text": episode["main_text"],
-            "color": "#FFE81F", 
+            "color": "#FFE81F",
             "font_size": 48
         }
     }
-    
+
     generator.load_config_dict(config)
     generator.generate_video(episode["filename"])
     print(f"Создан {episode['filename']}")
@@ -204,7 +204,7 @@ for i in range(5):
             "font_size": 48
         }
     }
-    
+
     generator.load_config_dict(config)
     generator.generate_video(f"random_video_{i+1}.mp4")
 ```
@@ -229,7 +229,7 @@ for filename in os.listdir(config_folder):
         config_path = os.path.join(config_folder, filename)
         output_name = filename.replace('.json', '.mp4')
         output_path = os.path.join(output_folder, output_name)
-        
+
         generator.load_config(config_path)
         generator.generate_video(output_path)
         print(f"Создано: {output_path}")
@@ -239,7 +239,7 @@ for filename in os.listdir(config_folder):
 
 ### Оптимальные размеры шрифтов
 - **Интро текст:** 30-40px
-- **Заголовок:** 60-80px  
+- **Заголовок:** 60-80px
 - **Основной текст:** 40-50px
 
 ### Популярные цветовые схемы

@@ -208,5 +208,3 @@ Incorporate these checks into your daily development routine:
   * **Once a month:**
       * Conduct a `dead-code-audit`
       * Update `ARCHITECTURE.md`
-
-

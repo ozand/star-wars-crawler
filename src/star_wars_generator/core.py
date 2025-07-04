@@ -55,7 +55,7 @@ class Fixed3DStarWarsGeneratorV2:
         self.adaptive_duration = None
 
         # Параметры наклона (настраиваемые)
-        self.tilt_angle = 18.0      # Угол наклона в градусах
+        self.tilt_angle = 18.0  # Угол наклона в градусах
         self.base_perspective = 0.4  # Базовая интенсивность перспективы
         self.max_perspective = 0.65  # Максимальная интенсивность
 
@@ -67,9 +67,15 @@ class Fixed3DStarWarsGeneratorV2:
         if "perspective" in config:
             perspective_config = config["perspective"]
             self.tilt_angle = perspective_config.get("tilt_angle", self.tilt_angle)
-            self.base_perspective = perspective_config.get("base_perspective", self.base_perspective)
-            self.max_perspective = perspective_config.get("max_perspective", self.max_perspective)
-            print(f"🎯 Perspective settings: angle={self.tilt_angle}°, base={self.base_perspective}, max={self.max_perspective}")
+            self.base_perspective = perspective_config.get(
+                "base_perspective", self.base_perspective
+            )
+            self.max_perspective = perspective_config.get(
+                "max_perspective", self.max_perspective
+            )
+            print(
+                f"🎯 Perspective settings: angle={self.tilt_angle}°, base={self.base_perspective}, max={self.max_perspective}"
+            )
 
         print(f"✅ Config loaded from dict: {config}")
 
@@ -83,10 +89,18 @@ class Fixed3DStarWarsGeneratorV2:
                 # Загружаем параметры наклона если они есть в конфигурации
                 if "perspective" in config:
                     perspective_config = config["perspective"]
-                    self.tilt_angle = perspective_config.get("tilt_angle", self.tilt_angle)
-                    self.base_perspective = perspective_config.get("base_perspective", self.base_perspective)
-                    self.max_perspective = perspective_config.get("max_perspective", self.max_perspective)
-                    print(f"🎯 Perspective settings: angle={self.tilt_angle}°, base={self.base_perspective}, max={self.max_perspective}")
+                    self.tilt_angle = perspective_config.get(
+                        "tilt_angle", self.tilt_angle
+                    )
+                    self.base_perspective = perspective_config.get(
+                        "base_perspective", self.base_perspective
+                    )
+                    self.max_perspective = perspective_config.get(
+                        "max_perspective", self.max_perspective
+                    )
+                    print(
+                        f"🎯 Perspective settings: angle={self.tilt_angle}°, base={self.base_perspective}, max={self.max_perspective}"
+                    )
 
                 print(f"✅ Config loaded from file: {config_path}")
         except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
@@ -165,7 +179,9 @@ class Fixed3DStarWarsGeneratorV2:
         # В оригинальных фильмах наклон достигает примерно 15-20 градусов
 
         # Основные параметры перспективы (сбалансированы для стабильности)
-        perspective_intensity = self.base_perspective + ((self.max_perspective - self.base_perspective) * progress)
+        perspective_intensity = self.base_perspective + (
+            (self.max_perspective - self.base_perspective) * progress
+        )
 
         # Верхняя часть (далеко в космосе) - сужается
         top_width_ratio = 1.0 - perspective_intensity  # От 0.6 до 0.35
@@ -181,7 +197,9 @@ class Fixed3DStarWarsGeneratorV2:
 
         # Вычисляем смещение на основе угла наклона
         angle_radians = np.radians(self.tilt_angle * angle_intensity)
-        vertical_tilt = int(h * np.tan(angle_radians) * 0.25)  # 25% от теоретического наклона
+        vertical_tilt = int(
+            h * np.tan(angle_radians) * 0.25
+        )  # 25% от теоретического наклона
 
         # Дополнительное смещение для анимации прокрутки (уменьшено)
         scroll_offset = int(h * 0.02 * progress)
@@ -189,10 +207,10 @@ class Fixed3DStarWarsGeneratorV2:
         # Исходные точки (прямоугольник текста)
         src_points = np.float32(
             [
-                [0, 0],      # верхний левый
-                [w, 0],      # верхний правый
-                [w, h],      # нижний правый
-                [0, h],      # нижний левый
+                [0, 0],  # верхний левый
+                [w, 0],  # верхний правый
+                [w, h],  # нижний правый
+                [0, h],  # нижний левый
             ]
         )
 
@@ -206,10 +224,10 @@ class Fixed3DStarWarsGeneratorV2:
 
         dst_points = np.float32(
             [
-                [top_margin, top_y],              # верхний левый (узко, высоко)
-                [w - top_margin, top_y],          # верхний правый (узко, высоко)
-                [w - bottom_margin, bottom_y],    # нижний правый (широко, низко)
-                [bottom_margin, bottom_y],        # нижний левый (широко, низко)
+                [top_margin, top_y],  # верхний левый (узко, высоко)
+                [w - top_margin, top_y],  # верхний правый (узко, высоко)
+                [w - bottom_margin, bottom_y],  # нижний правый (широко, низко)
+                [bottom_margin, bottom_y],  # нижний левый (широко, низко)
             ]
         )
 
@@ -233,7 +251,7 @@ class Fixed3DStarWarsGeneratorV2:
         if result.shape[0] >= h and result.shape[1] >= w:
             start_y = max(0, (result.shape[0] - h) // 2)
             start_x = max(0, (result.shape[1] - w) // 2)
-            return result[start_y:start_y + h, start_x:start_x + w]
+            return result[start_y : start_y + h, start_x : start_x + w]
 
         # Если результат меньше, дополняем черным и центрируем
         padded = np.zeros((h, w, 3), dtype=np.uint8)
@@ -250,7 +268,9 @@ class Fixed3DStarWarsGeneratorV2:
         result_h = min(result.shape[0], end_y - start_y)
         result_w = min(result.shape[1], end_x - start_x)
 
-        padded[start_y:start_y + result_h, start_x:start_x + result_w] = result[:result_h, :result_w]
+        padded[start_y : start_y + result_h, start_x : start_x + result_w] = result[
+            :result_h, :result_w
+        ]
 
         return padded
 
@@ -353,7 +373,6 @@ class Fixed3DStarWarsGeneratorV2:
         # Эффективное смешивание с фоном
         return self._blend_text_with_background(background, perspective_text, progress)
 
-
     def _ensure_starfield_background(self) -> np.ndarray:
         """Создает или возвращает кэшированный фон со звездами."""
         if "starfield" not in self.static_frames:
@@ -395,7 +414,10 @@ class Fixed3DStarWarsGeneratorV2:
                 start_offset = max(0, actual_text_bottom - self.height)
                 end_offset = min(strip_height - self.height, actual_text_top)
 
-                if progress in [0, 0.25, 0.5, 0.75, 1.0] or progress > self.PROGRESS_THRESHOLD_HIGH:
+                if (
+                    progress in [0, 0.25, 0.5, 0.75, 1.0]
+                    or progress > self.PROGRESS_THRESHOLD_HIGH
+                ):
                     print("   📊 ADAPTIVE scroll logic:")
                     print(f"      Text range: {actual_text_top}-{actual_text_bottom}")
                     print(f"      Adaptive scroll range: {start_offset}-{end_offset}")
@@ -446,7 +468,9 @@ class Fixed3DStarWarsGeneratorV2:
 
         return text_section
 
-    def _blend_text_with_background(self, background: np.ndarray, perspective_text: np.ndarray, progress: float) -> np.ndarray:
+    def _blend_text_with_background(
+        self, background: np.ndarray, perspective_text: np.ndarray, progress: float
+    ) -> np.ndarray:
         """Смешивает текст с перспективой с фоном."""
         non_black_threshold = 20
 
@@ -455,7 +479,10 @@ class Fixed3DStarWarsGeneratorV2:
         text_pixel_count = np.sum(text_mask)
 
         if text_pixel_count == 0:
-            if progress > self.PROGRESS_THRESHOLD_HIGH or progress < self.PROGRESS_THRESHOLD_LOW:
+            if (
+                progress > self.PROGRESS_THRESHOLD_HIGH
+                or progress < self.PROGRESS_THRESHOLD_LOW
+            ):
                 print("   ⚠️ No text pixels after perspective transform")
             return background
 
@@ -513,7 +540,9 @@ class Fixed3DStarWarsGeneratorV2:
         """Генерирует видео (алиас для generate_3d_video)."""
         self.generate_3d_video(output_file)
 
-    def generate_3d_video(self, output_file: str = "starwars_crawl_3d_optimized.mp4") -> None:
+    def generate_3d_video(
+        self, output_file: str = "starwars_crawl_3d_optimized.mp4"
+    ) -> None:
         """Генерирует видео с настоящим 3D эффектом и оптимизацией."""
         print("🎬 OPTIMIZED 3D PERSPECTIVE Star Wars Generator V2")
         print("=" * 60)

@@ -43,7 +43,7 @@ python starwars-cli.py --list
 
 # Классические темы
 python starwars-cli.py classic_yellow_normal
-python starwars-cli.py classic_yellow_large  
+python starwars-cli.py classic_yellow_large
 python starwars-cli.py classic_yellow_small
 
 # Цветные темы
@@ -134,7 +134,7 @@ python starwars-cli.py --batch
 
 # Результат: 15 видео в examples/videos/
 # - classic_yellow_small.mp4
-# - classic_yellow_normal.mp4  
+# - classic_yellow_normal.mp4
 # - classic_yellow_large.mp4
 # - blue_theme_small.mp4
 # - ... и т.д.
@@ -176,14 +176,14 @@ CLI поддерживает те же JSON конфигурации, что и 
 
 episodes=(
   "Episode I:The Phantom Menace"
-  "Episode II:Attack of the Clones"  
+  "Episode II:Attack of the Clones"
   "Episode III:Revenge of the Sith"
 )
 
 for episode in "${episodes[@]}"; do
   title=$(echo $episode | cut -d: -f1)
   subtitle=$(echo $episode | cut -d: -f2)
-  
+
   python starwars-cli.py \
     --title "$title\n$subtitle" \
     --text "Coming soon to theaters..." \

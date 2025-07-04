@@ -37,16 +37,16 @@
 ```python
 def apply_perspective_transform(self, img: np.ndarray, progress: float) -> np.ndarray:
     """Применяет настоящее 3D преобразование перспективы - текст уходит в глубину"""
-    
+
     h, w = img.shape[:2]
 
     # ПРАВИЛЬНАЯ STAR WARS ПЕРСПЕКТИВА
     perspective_intensity = 0.3 + (0.4 * progress)  # От 0.3 до 0.7
-    
+
     # Верхняя часть (далеко) - сужается
     top_width_ratio = 1.0 - perspective_intensity  # От 0.7 до 0.3
     top_width = int(w * top_width_ratio)
-    
+
     # Нижняя часть (близко) - остается широкой
     bottom_width_ratio = 1.0  # Полная ширина снизу
     bottom_width = int(w * bottom_width_ratio)
@@ -63,7 +63,7 @@ def apply_perspective_transform(self, img: np.ndarray, progress: float) -> np.nd
 
 ### После исправления:
 - ✅ Текст "уходит" в глубину экрана
-- ✅ Верх уже, низ шире  
+- ✅ Верх уже, низ шире
 - ✅ Точно как в оригинальных Star Wars
 - ✅ Динамическая интенсивность перспективы
 - ✅ Плавные переходы
@@ -93,6 +93,6 @@ def apply_perspective_transform(self, img: np.ndarray, progress: float) -> np.nd
 
 ---
 
-**Автор:** GitHub Copilot  
-**Дата:** Январь 2025  
+**Автор:** GitHub Copilot
+**Дата:** Январь 2025
 **Статус:** ✅ Завершено и протестировано

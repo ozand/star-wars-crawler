@@ -1,7 +1,7 @@
 # 🧹 ОТЧЕТ ПО ОЧИСТКЕ КОРНЯ ПРОЕКТА
 
-**Дата:** $(Get-Date -Format "yyyy-MM-dd HH:mm")  
-**Принцип:** Гайдлайн по "чистому коду"  
+**Дата:** $(Get-Date -Format "yyyy-MM-dd HH:mm")
+**Принцип:** Гайдлайн по "чистому коду"
 **Цель:** Организация корня проекта согласно best practices
 
 ---
@@ -48,7 +48,7 @@
 ```
 Корень содержал:
 ├── 4 пустых файла (main.py, *.json, *.txt, run.bat)
-├── 2 дублирующихся конфига  
+├── 2 дублирующихся конфига
 ├── 4 MD файла не по месту
 ├── 1 видео файл не по месту
 ├── 2 папки тестов не по месту
@@ -65,7 +65,7 @@ t:\Code\python\TEMP\star_war_crawler\
 ├── 📄 ARCHITECTURE.md          # Архитектура
 ├── 📄 CHANGELOG.md             # Изменения
 ├── 🚀 starwars-cli.py          # Главный CLI
-├── 🚀 starwars-cli.bat         # Windows launcher  
+├── 🚀 starwars-cli.bat         # Windows launcher
 ├── 🚀 starwars-cli.sh          # Unix launcher
 ├── 📁 src/                     # Исходный код
 ├── 📁 tests/                   # Тесты

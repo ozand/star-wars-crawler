@@ -7,7 +7,7 @@
 Система поддерживает три основных параметра для настройки перспективы:
 
 ### 1. `tilt_angle` (Угол наклона)
-- **Диапазон**: 5-30 градусов  
+- **Диапазон**: 5-30 градусов
 - **По умолчанию**: 18°
 - **Описание**: Основной угол наклона текста. Чем больше значение, тем сильнее перспектива.
 
@@ -17,7 +17,7 @@
 - **Описание**: Интенсивность сужения в верхней части текста.
 
 ### 3. `max_perspective` (Максимальная перспектива)
-- **Диапазон**: 0.0-1.0  
+- **Диапазон**: 0.0-1.0
 - **По умолчанию**: 0.65
 - **Описание**: Максимальная интенсивность перспективы в конце прокрутки.
 
@@ -70,7 +70,7 @@
 # Слабый наклон
 starwars-cli --title "Мой заголовок" --text "Мой текст" --tilt 12
 
-# Оптимальный наклон  
+# Оптимальный наклон
 starwars-cli my_theme --tilt 22 --perspective-min 0.45 --perspective-max 0.72
 
 # Полная настройка
@@ -97,7 +97,7 @@ starwars-cli --title "EPISODE X" --text "Продолжение истории..
     },
     "main_text": {
         "text": "Luke Skywalker has vanished.\\nIn his absence, the sinister\\nFIRST ORDER has risen...",
-        "color": "#FFE81F", 
+        "color": "#FFE81F",
         "font_size": 48
     },
     "animation": {
@@ -120,7 +120,7 @@ generator = Fixed3DStarWarsGeneratorV2()
 
 # Метод 1: Прямая настройка параметров
 generator.tilt_angle = 22.0
-generator.base_perspective = 0.45  
+generator.base_perspective = 0.45
 generator.max_perspective = 0.72
 
 # Метод 2: Через конфигурацию
@@ -155,7 +155,7 @@ generator.generate_video("my_video.mp4")
 - Угол: 12-15°
 - Perspective: 0.3-0.55
 
-### Для игровых трейлеров  
+### Для игровых трейлеров
 - Угол: 20-25°
 - Perspective: 0.45-0.8
 

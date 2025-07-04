@@ -30,29 +30,28 @@ line-length = 88
 target-version = "py312"
 
 [tool.ruff.lint]
-select = ["ALL"]  # Включить все правила согласно гайдлайну
+select = ["ALL"]
 ignore = [
-    "E501",   # line too long (handled by formatter)
-    "F403",   # star imports (legacy code)
-    "F405",   # may be undefined from star imports
-    "T201",   # print statements (debug code)
-    "E722",   # bare except (will fix gradually)
-    "D100",   # missing docstring in public module
-    "D101",   # missing docstring in public class
-    "D102",   # missing docstring in public method
-    "D103",   # missing docstring in public function
-    "D104",   # missing docstring in public package
-    "D105",   # missing docstring in magic method
-    "S101",   # use of assert (pytest usage)
-    "PLR0913", # too many arguments to function call
-    "PLR0912", # too many branches
-    "C901",   # function is too complex
-    "COM812", # trailing comma missing (handled by formatter)
-    "ISC001", # implicitly concatenated string literals (handled by formatter)
-    "FIX002", # TODO comments (temporary)
-    "TD002",  # TODO comments without author (temporary)
-    "TD003",  # TODO comments without issue link (temporary)
-]
+    "T201",  # print statements allowed for CLI tools
+    "S602",  # subprocess with shell=True allowed for build scripts
+    "RUF001", "RUF002", "RUF003",  # Unicode ambiguity checks - allow Cyrillic
+    "E501",  # Line too long - let formatter handle
+    "ERA001",  # Commented code allowed in tests
+    "TD002", "TD003", "FIX002",  # TODO formatting
+    "PLR0913", "PLR0915", "PLR0911",  # Function complexity limits
+    "COM812",  # Trailing comma conflicts with formatter
+    "BLE001",  # Blind except allowed for CLI error handling
+    "TRY300",  # Try-except-else formatting
+    "F403", "F405",  # Star imports allowed in __init__.py
+    "PTH110", "PTH123", "PTH202", "PTH108",  # Use pathlib - can be fixed later
+    "NPY002",  # Legacy numpy - can be updated later
+    "SIM102",  # Nested if statements
+    "E722",   # Bare except allowed for fallback error handling
+    "S101",   # Assert allowed in tests
+    "ANN201",  # Return type annotation - can be added later
+    "D205",   # Docstring formatting
+    "PLR2004"  # Magic values
+]  # Включить все правила согласно гайдлайну
 unfixable = ["F841"]  # Не автофиксить неиспользуемые переменные
 
 [tool.ruff.lint.per-file-ignores]

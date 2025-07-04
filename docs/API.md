@@ -75,13 +75,13 @@ generator.load_text_data("examples/data/starwars_crawl.txt")
     "font_size": number
   },
   "title": {
-    "text": "string", 
+    "text": "string",
     "color": "hex_color",
     "font_size": number
   },
   "main_text": {
     "text": "string",
-    "color": "hex_color", 
+    "color": "hex_color",
     "font_size": number
   },
   "animation": {

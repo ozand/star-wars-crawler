@@ -1,6 +1,5 @@
 """Интеграционные тесты для Star Wars Crawler."""
 
-
 import pytest
 
 

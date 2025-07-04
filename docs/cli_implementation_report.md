@@ -12,7 +12,7 @@
 
 #### Основные команды:
 - ✅ **Создание видео по умолчанию**: `python starwars-cli.py`
-- ✅ **Список тем**: `python starwars-cli.py --list`  
+- ✅ **Список тем**: `python starwars-cli.py --list`
 - ✅ **Использование готовых тем**: `python starwars-cli.py classic_yellow_normal`
 - ✅ **Создание из текста**: `python starwars-cli.py --title "..." --text "..."`
 - ✅ **Создание шаблона**: `python starwars-cli.py --template config.json`

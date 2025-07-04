@@ -38,7 +38,10 @@ def main() -> int:
         ("ruff format . --check", "Проверка форматирования кода"),
         ("ruff check .", "Проверка качества кода"),
         ("python -m pytest tests/ -v", "Запуск тестов"),
-        ("python -c \"import src.star_wars_generator; print('Import OK')\"", "Проверка импортов"),
+        (
+            "python -c \"import src.star_wars_generator; print('Import OK')\"",
+            "Проверка импортов",
+        ),
     ]
 
     success = True

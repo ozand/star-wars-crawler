@@ -1,4 +1,5 @@
 """MoviePy configuration module for ImageMagick integration."""
+
 import os
 
 from moviepy.config import change_settings, get_setting

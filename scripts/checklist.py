@@ -17,7 +17,8 @@ def run_command(cmd: str, description: str) -> bool:
             capture_output=True,
             text=True,
             encoding="utf-8",
-            errors="replace", check=False,
+            errors="replace",
+            check=False,
         )
         if result.returncode == 0:
             print(f"✅ {description} - успешно")
