@@ -45,6 +45,7 @@ repos:
         args: ['-r', 'src/', '-f', 'json']
         name: Security check with Bandit
         files: ^src/
+        pass_filenames: false
 
   - repo: local
     hooks:

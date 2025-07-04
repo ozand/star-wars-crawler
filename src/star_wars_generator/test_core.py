@@ -53,7 +53,9 @@ class TestConfigManager:
 
         try:
             # TODO: Тест загрузки конфигурации
-            assert os.path.exists(config_path)
+            if not os.path.exists(config_path):
+                msg = f"Config file not found: {config_path}"
+                raise FileNotFoundError(msg)
         finally:
             os.unlink(config_path)
 
